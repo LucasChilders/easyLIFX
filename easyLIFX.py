@@ -3,7 +3,6 @@
 
 import requests
 import json
-import os
 
 # TODO
 # Add other methods for API endpoints (https://api.developer.lifx.com/docs)
@@ -66,12 +65,12 @@ class easyLIFX:
     # Lookup light ID based on logical label, e.g. "Bed"
     def lookupByLabel(self, name):
         try:
-            return self.lightsDict[name.lower()]
+            return self.lightsDict[name.lower().strip()]
         except KeyError:
-            return None
+            return "%s - Not Found" % name
 
     # Convert comma seperated light names to their repective IDs
-    # TODO: Remove spaces, e.g. "Bed, Desk"
+    # Preferred format: "Bed,Desk"
     def parseLightLabel(self, lightLabel):
         if lightLabel.lower() == "all":
             return "all"
@@ -81,15 +80,3 @@ class easyLIFX:
                 idString += self.lookupByLabel(name) + ","
 
             return idString[:-1]
-
-# Uses system's environment variable for LIFX API key.
-# https://cloud.lifx.com/settings
-
-lifx = easyLIFX(os.environ["LIFX_KEY"])
-
-# lifx.setState()
-# lifx.setState(brightness = ".5")
-# lifx.setState(state = "on", brightness="1.0", duration="1", color="kelvin:4500", lightLabel="Bed")
-# lifx.setState()
-# lifx.togglePower()
-lifx.listLightsInfo()
