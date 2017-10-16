@@ -50,8 +50,10 @@ _All values are optional, below are defaults._
   * Fade on or off duration in seconds
 <br><br>
 * `color="kelvin:4500"`
-  * TODO: Simplify color selection
-  * `blue saturation=0.5`
+  * Accepts several different input methods, I recommend either HEX, RGB or Kelvin.
+    * `#FF0000`
+    * `rgb:255,0,0`
+    * `kelvin:5000`
 <br><br>
 * `lights="all"`
   * Use comma separated names of lights
