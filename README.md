@@ -8,8 +8,6 @@ A Python 3 library used to **easily** interact with LIFX lights.
 
 1. Head to [LIFX Cloud](https://cloud.lifx.com/settings) and generate a new token. This is used as an argument when creating a new easyLIFX object.
 
----
-
 # Methods
 
 ## init
@@ -19,8 +17,6 @@ Creates a new easyLIFX object.
 
 _The init method takes the LIFX API key as a required argument. The best way
 to handle this is by setting the key as an environment variable._
-
----
 
 ## togglePower
 `togglePower()`
@@ -36,7 +32,6 @@ _All values are optional, below are defaults._
 togglePower(lights="Bed,Desk")
 ```
 
----
 ## setState
 `setState()`
 
@@ -65,7 +60,6 @@ _All values are optional, below are defaults._
 setState(state="off", lights="Bed,Desk")
 ```
 
----
 ## listLightsInfo
 `listLightsInfo()`  
 
